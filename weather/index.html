@@ -164,7 +164,7 @@
         // ES6 Features Implementation
         const getWeatherData = async (city) => {
             try {
-                const response = await fetch(${BASE_URL}?q=${city}&appid=${API_KEY}&units=metric);
+               const response = await fetch(`${BASE_URL}?q=${city}&appid=${API_KEY}&units=metric`);
                 
                 if (!response.ok) {
                     throw new Error('City not found');
@@ -184,7 +184,7 @@
 
             // Template Literals
             cityName.textContent = name;
-            temperature.textContent = ${temp}°C;
+            temperature.textContent = `${temp}°C`;
             weatherDescription.textContent = description;
             
             // Hide error if shown
@@ -194,7 +194,7 @@
         const updateCharts = (data) => {
             const tempData = Array.from({ length: 24 }, (_, i) => data.main.temp);
             const humidityData = Array.from({ length: 24 }, (_, i) => data.main.humidity);
-            const labels = Array.from({ length: 24 }, (_, i) => ${i}:00);
+            const labels = Array.from({ length: 24 }, (_, i) => `${i}:00`);
 
             // Temperature Chart
             if (temperatureChart) {
